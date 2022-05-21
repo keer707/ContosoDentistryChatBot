@@ -13,7 +13,13 @@ ${time}`
 
         this.scheduleAppointment = async (time) => {
             const response = await fetch(configuration.SchedulerEndpoint + "schedule", { method: "post", body: { time: time } })
-            let responseText = `An appointment is set for ${time}.`
+            let responseText = `An appointment is set for ${time}`
+            return responseText
+        }
+
+        this.deleteScheduleAppointment = async (time) => {
+            const response = await fetch(configuration.SchedulerEndpoint + "deletescheduled", { method: "post", body: { time: time } })
+            let responseText = `Deleted your appointment scheduled at ${time}`
             return responseText
         }
     }
